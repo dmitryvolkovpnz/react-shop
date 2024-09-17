@@ -7,11 +7,19 @@ export class Booking extends Component {
     return (
     
     <div className='booking-main'>
-
-        <div className='form-main'>
+        <div>
+        <h2>ОФОРМЛЕНИЕ ЗАКАЗА</h2>
             <form>
-
+                <div className='main-info'>
+                    <input type="text" name="name" placeholder='Ваше имя...'/>
+                    <input type="text" name="name" placeholder='Ваша фамилия...'/>
+                </div>
+                <div className='info'>
+                    <input type="text" name="phone" placeholder='Ваш телефон...'/>
+                    <input type="text" name="name" placeholder='Ваш адрес...'/>
+                </div>
             </form>
+            <button className='form-button'>Заказать</button>
         </div>
         <div className='booking'>
             <h2>ВАШ ЗАКАЗ</h2>
@@ -20,16 +28,15 @@ export class Booking extends Component {
                             <div>
                             <div className='title-price'>
                                 <h2>{el.title}</h2>
-                                <b>{el.price} ₽</b>
+                                <p>{el.price} ₽</p>
                             </div>
                             <div className='btn-order'>
                                         <div>{el.count} шт.</div>
                             </div>
                         </div>
-                        ))}
-            <h3>ИТОГО: {cost} ₽</h3>            
+                        ))}     
             </div>
-            
+            <h4>ИТОГ: {cost} ₽</h4> 
         </div>
 
             
