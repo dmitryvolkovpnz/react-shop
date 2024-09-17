@@ -4,7 +4,7 @@ import { RiTelegramLine } from "react-icons/ri";
 import { FaWhatsapp } from "react-icons/fa";
 import { TbWorld } from "react-icons/tb"; 
 
-const Foother = () => {
+const Footer = () => {
     return (
             <footer>
                 <div className='logo-footer'>
@@ -34,4 +34,4 @@ const Foother = () => {
     );
 };
 
-export default Foother;
+export default Footer;

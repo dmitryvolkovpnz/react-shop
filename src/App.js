@@ -1,6 +1,6 @@
 import React from "react"
 import Header from "./components/Header"
-import Foother from "./components/Foother"
+import Footer from "./components/Footer"
 import Items from "./components/Items";
 import { Route, Routes } from "react-router";
 import Orders from "./components/orders";
@@ -79,7 +79,7 @@ class App extends React.Component {
                         <Route path="/" element={<Items itemesHeadphone={this.state.itemesHeadphone} items={this.state.items} onAdd={this.addToOrder} /> } />
                         <Route path="/cart" element={<Orders orders={this.state.orders} incrimentItem={this.incrimentItem} decrimentItem={this.decrimentItem} deleteItem={this.deleteItem}/>}/>
                     </Routes>
-                  <Foother />
+                  <Footer />
             </div>
         )
     }
