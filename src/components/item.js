@@ -6,7 +6,7 @@ export class Item extends Component {
         return(
             <div className='item'>
                 <div className='img-item'>
-                    <img src={"./img/" + this.props.item.img} alt="картинка"/>
+                    <img src={"./img/" + this.props.item.img} alt="картинка" onClick={()=>this.props.onDetail(this.props.item)}/>
                 </div>
                 <div className='title-price'>
                     <h2>{this.props.item.title}</h2>
@@ -16,6 +16,7 @@ export class Item extends Component {
                 <p><IoIosStar className='star'/> {this.props.item.star}</p> 
                 <div className='add-to-cart' onClick={()=> this.props.onAdd(this.props.item)}>Купить</div>
             </div>
+            
         )
     }
 }

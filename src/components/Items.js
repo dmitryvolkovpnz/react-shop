@@ -8,7 +8,7 @@ export class Items extends Component {
                 <h3>Наушники</h3> 
                 <main>
                     {this.props.items.map(el => (
-                        <Item key={el.id} item={el} onAdd={this.props.onAdd}/>
+                        <Item key={el.id} item={el} onAdd={this.props.onAdd} onDetail={this.props.onDetail}/>
                     ))}
                 </main>
             </div>

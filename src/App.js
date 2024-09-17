@@ -4,12 +4,13 @@ import Footer from "./components/Footer"
 import Items from "./components/Items";
 import { Route, Routes } from "react-router";
 import Orders from "./components/orders";
-
+import Detail from "./components/Detail";
 
 class App extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
+
             // пустой массив с товарами в корзине 
             orders: [],
             // массив с товаров в каталоге
@@ -19,6 +20,7 @@ class App extends React.Component {
                     title: 'Apple BYZ S852I',
                     img: 'Image(1).png',
                     star: '4.7',
+                    descripton: 'Гарнитура Apple EarPods A3046 белый, вкладыши, крепление в ушной раковине, проводные, прямой коннектор, кабель 1.1м, регулятор громкости на проводе, микрофон на проводе (MTJY3ZM/A)',
                     price: '2927',
                     oldPrice: '3527 ₽',
                     count: 1
@@ -28,6 +30,7 @@ class App extends React.Component {
                     title: 'Apple EarPods',
                     img: 'Image(2).png',
                     star: '4.5',
+                    descripton: 'В отличие от круглой формы обычных наушников-вкладышей, конструкция новых наушников EarPods продиктована геометрией ушной раковины. Именно поэтому для многих пользователей они будут удобнее любых других наушников-вкладышей.',
                     price: '2327',
                     count: 1
                 },
@@ -36,6 +39,7 @@ class App extends React.Component {
                     title: 'Apple EarPods',
                     img: 'Image(3).png',
                     star: '4.5',
+                    descripton: 'Наушники EarPods оснащены встроенным пультом, с помощью которого можно регулировать громкость, управлять воспроизведением музыки и видео и принимать или завершать звонки одним нажатием.',
                     price: '2327',
                     count: 1
                 },
@@ -44,6 +48,7 @@ class App extends React.Component {
                     title: 'Apple AirPods',
                     img: 'Image(4).png',
                     star: '4.7',
+                    descripton: 'AirPods — лёгкие наушники, форма которых была оптимизирована для более плотной посадки. Наушники расположены под оптимальным углом для максимального комфорта и наилучшего звучания. Ножка у них стала на 33% короче, чем у AirPods (2 го поколения), а встроенный в неё датчик нажатия позволяет управлять воспроизведением музыки и звонками.',
                     price: '9527',
                     count: 1
                 },
@@ -52,6 +57,7 @@ class App extends React.Component {
                     title: 'GERLAX GH-04',
                     img: 'Image(5).png',
                     star: '4.5',
+                    descripton: 'Наушники доступны в белом и черном цветах. Сами наушники содержат силиконовые насадки, подходящие для каждого уха. Преимуществом также является повышенная устойчивость к воде и пыли даже IP 55, что особенно оценят меломаны при занятиях спортом.',
                     price: '6527',
                     count: 1
                 },
@@ -60,15 +66,19 @@ class App extends React.Component {
                     title: 'BOROFONE BO4',
                     img: 'Image(6).png',
                     star: '4.5',
+                    descripton: 'Беспроводные наушники представляют собой стильное и функциональное решение для любителей качественного звука. Наушники оснащены Bluetooth 5.3, что обеспечивает стабильное и быстрое подключение к различным устройствам. Версия Bluetooth гарантирует высокую скорость передачи данных и надежность соединения.',
                     price: '7527',
                     count: 1
                 },
-            ]
+            ],
+            showDetailItem: false,
+            detailItem: {}
         }
         this.addToOrder = this.addToOrder.bind(this)                    // Тут подключаем разрешение функции на взаимодействие с состояниями
         this.incrimentItem = this.incrimentItem.bind(this)              // Тут подключаем разрешение функции на взаимодействие с состояниями
         this.decrimentItem = this.decrimentItem.bind(this)              // Тут подключаем разрешение функции на взаимодействие с состояниями
         this.deleteItem = this.deleteItem.bind(this)                    // Тут подключаем разрешение функции на взаимодействие с состояниями
+        this.onDetail = this.onDetail.bind(this) 
     }
     render() {
         return (
@@ -76,9 +86,10 @@ class App extends React.Component {
             <div className="wrapper">     
                    <Header orders={this.state.orders}/>
                     <Routes>
-                        <Route path="/" element={<Items itemesHeadphone={this.state.itemesHeadphone} items={this.state.items} onAdd={this.addToOrder} /> } />
+                        <Route path="/" element={<Items showDetailItem={this.state.showDetailItem} itemesHeadphone={this.state.itemesHeadphone} items={this.state.items} onAdd={this.addToOrder} onDetail={this.onDetail}/> } />
                         <Route path="/cart" element={<Orders orders={this.state.orders} incrimentItem={this.incrimentItem} decrimentItem={this.decrimentItem} deleteItem={this.deleteItem}/>}/>
                     </Routes>
+                    {this.state.showDetailItem && <Detail item={this.state.detailItem} onAdd={this.addToOrder} onDetail={this.onDetail}/>}
                   <Footer />
             </div>
         )
@@ -118,6 +129,11 @@ class App extends React.Component {
     // (перебирает весь массив с товарами в корзине, кроме того, что передан в функцию).
     deleteItem(id){
         this.setState({orders: this.state.orders.filter(el => el.id !== id)})
+    }
+
+    onDetail(item){
+        this.setState({detailItem: item})
+        this.setState({showDetailItem: !this.state.showDetailItem})
     }
 }
 

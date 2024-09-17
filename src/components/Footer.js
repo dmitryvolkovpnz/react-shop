@@ -2,14 +2,13 @@ import React from 'react';
 import { SlSocialVkontakte } from "react-icons/sl";
 import { RiTelegramLine } from "react-icons/ri";
 import { FaWhatsapp } from "react-icons/fa";
-import { TbWorld } from "react-icons/tb"; 
+import { TbWorld } from "react-icons/tb";
+import { Link } from "react-router-dom"; 
 
 const Footer = () => {
     return (
             <footer>
-                <div className='logo-footer'>
-                    <span>QPICK</span>
-                </div>
+                <Link to='/' className='logo-footer'><span>QPICK</span></Link>
                 <div className='footer-menu'>
                     <ul>
                         <li>Избранное</li>
