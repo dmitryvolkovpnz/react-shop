@@ -469,6 +469,40 @@ box-shadow: 0px 0px 16px -6px rgba(0, 0, 0, 0.2);
     cursor: pointer;
 }
 
+.booking-main{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.booking-main .form-main{
+    width: 70%;
+}
+
+.booking-main .booking{
+    width: 30%;
+}
+
+.booking-main .booking .booking-item{
+    background: #fff;
+    border-radius: 20px;
+    padding: 10px 10px;
+}
+
+.booking-main .booking .booking-item > div{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.booking-main .booking .booking-item .title-price h2{
+    font-size: 15px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+
+
 
 footer{
     display: flex;

@@ -5,6 +5,7 @@ import Items from "./components/Items";
 import { Route, Routes } from "react-router";
 import Orders from "./components/orders";
 import Detail from "./components/Detail";
+import Booking from "./components/Booking";
 
 class App extends React.Component {
     constructor(props) {
@@ -88,6 +89,7 @@ class App extends React.Component {
                     <Routes>
                         <Route path="/" element={<Items showDetailItem={this.state.showDetailItem} itemesHeadphone={this.state.itemesHeadphone} items={this.state.items} onAdd={this.addToOrder} onDetail={this.onDetail}/> } />
                         <Route path="/cart" element={<Orders orders={this.state.orders} incrimentItem={this.incrimentItem} decrimentItem={this.decrimentItem} deleteItem={this.deleteItem}/>}/>
+                        <Route path="/booking" element={<Booking orders={this.state.orders} />} />
                     </Routes>
                     {this.state.showDetailItem && <Detail item={this.state.detailItem} onAdd={this.addToOrder} onDetail={this.onDetail}/>}
                   <Footer />

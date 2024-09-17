@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import Order from "./Order";
+import { Link } from "react-router-dom"; 
+
 
 export class Orders extends Component {
     render() {
@@ -17,7 +19,7 @@ export class Orders extends Component {
                         <div className='total-price'>
                            <span className='text'>Итого:</span><span className='price'>{cost} ₽</span>
                         </div>
-                        <button className='order-btn'>Перейти к оформлению</button>
+                        <Link to='/booking'><button className='order-btn'>Перейти к оформлению</button></Link>
                     </div>
                 </div>
             </div>
