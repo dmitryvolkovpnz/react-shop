@@ -514,8 +514,8 @@ box-shadow: 0px 0px 16px -6px rgba(0, 0, 0, 0.2);
 }
 
 form{
-    margin-top: 30px;
-    margin-bottom: 30px;
+    margin-top: 20px;
+    margin-bottom: 10px;
 }
 
 form .main-info, 
@@ -524,14 +524,14 @@ form .info{
 }
 
 form input{
-    width: 350px;
+    width: 300px;
     height: 30px;
     margin-right: 10px;
     margin-top: 10px;
     margin-bottom: 10px;
     background: #ffffff;
     border: 0;
-    padding: 5px 5px;
+    padding: 5px 10px;
     border-radius: 10px;
 }
 
