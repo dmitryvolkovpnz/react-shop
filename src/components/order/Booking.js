@@ -1,9 +1,7 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-
-export class Booking extends Component {
-  render() {
-    const cost = this.props.orders.reduce((sum, orders)=>sum+orders.price*orders.count, 0) 
+function Booking(props) {
+    const cost = props.orders.reduce((sum, orders)=>sum+orders.price*orders.count, 0)
     return (
     
     <div className='booking-main'>
@@ -24,7 +22,7 @@ export class Booking extends Component {
         <div className='booking'>
             <h2>ВАШ ЗАКАЗ</h2>
             <div className='booking-item'>
-                    {this.props.orders.map(el => (
+                    {props.orders.map(el => (
                             <div>
                             <div className='title-price'>
                                 <h2>{el.title}</h2>
@@ -42,7 +40,6 @@ export class Booking extends Component {
             
         </div>
     )
-  }
 }
 
 export default Booking

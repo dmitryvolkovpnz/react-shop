@@ -1,18 +1,17 @@
-import React, {Component} from 'react';
+import React from 'react';
 import Order from "./Order";
 import { Link } from "react-router-dom"; 
 
 
-export class Orders extends Component {
-    render() {
-        const cost = this.props.orders.reduce((sum, orders)=>sum+orders.price*orders.count, 0)          // Данная переменная отвечает за подсчет суммы всех товаров, которые находятся в корзине.
+function Orders(props) {
+        const cost = props.orders.reduce((sum, orders)=>sum+orders.price*orders.count, 0)          // Данная переменная отвечает за подсчет суммы всех товаров, которые находятся в корзине.
         return(
             <div>                    
                 <h3>Корзина</h3> 
                 <div className='order-block'>
                     <div className='order-list'>
-                        {this.props.orders.map(el => (
-                            <Order key={el.id} orders={el} incrimentItem={this.props.incrimentItem} decrimentItem={this.props.decrimentItem} deleteItem={this.props.deleteItem}/>
+                        {props.orders.map(el => (
+                            <Order key={el.id} orders={el} incrimentItem={props.incrimentItem} decrimentItem={props.decrimentItem} deleteItem={props.deleteItem}/>
                         ))}
                     </div>
                     <div className='order-info'>
@@ -24,7 +23,6 @@ export class Orders extends Component {
                 </div>
             </div>
         )
-    }
 }
 
 

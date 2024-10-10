@@ -4,7 +4,7 @@ import { BiHeart } from "react-icons/bi";
 import { Link } from "react-router-dom";
 
 
-const Header = (props) => {
+function Header(props) {
 
     return (
              <header>
